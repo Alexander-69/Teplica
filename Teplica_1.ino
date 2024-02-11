@@ -62,7 +62,7 @@ void setup() {
 
 void loop() {
   ms = millis();
-
+delay (2000);
   // раз в 2 секунды опрашиваем датчики
   if ((ms - dht22Ms) > 2000) {
     dht22Ms = ms;
@@ -129,23 +129,23 @@ void loop() {
  #ifdef DEBUG_DHT 
 //Выдача информации о температуре и влажности в серийный порт
 //  Первый датчик
-  Serial.print(F("Humidity1: "));
-  Serial.print(h1);
-  Serial.print(F("% Temperature: "));
+  Serial.print(F("Temperature1: "));
   Serial.print(t1);
-  Serial.println(F("°C"));
+  Serial.print(F("°C Humidity1: "));
+  Serial.print(h1);
+  Serial.println(F("%"));
 // Второй датчик
-  Serial.print(F("Humidity2: "));
-  Serial.print(h2);
-  Serial.print(F("% Temperature2: "));
+  Serial.print(F("Temperature2: "));
   Serial.print(t2);
-  Serial.println(F("°C "));
+  Serial.print(F("°C Humidity2: "));
+  Serial.print(h2);
+  Serial.println(F("%"));
 // Третий датчик
-  Serial.print(F("Humidity3: "));
-  Serial.print(h3);
-  Serial.print(F("% Temperature3: "));
+  Serial.print(F("Temperature3: "));
   Serial.print(t3);
-  Serial.println(F("°C "));
+  Serial.print(F("°C Humidity3: "));
+  Serial.print(h3);
+  Serial.println(F("%"));
 #endif
 
 }  //loop
