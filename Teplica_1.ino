@@ -12,8 +12,8 @@ DHT dht3(DHT3PIN, DHTTYPE); // определяем третий датчик т
 //---------Определение кнопок и концевиков для окон----------------------------------
 #define RELE_UP 14     // Подключение первого реле
 #define RELE_DOWN 27   // Подключение второго реле
-#define KONCEVIK_1 13  // Подключение концевика открыто
-#define KONCEVIK_2 12  // Подключение концевика закрыто
+#define KONCEVIK_UP 13  // Подключение концевика открыто
+#define KONCEVIK_DOWN 12  // Подключение концевика закрыто
 #define BUTTON_UP 26   // Подключение кнопки на открытие
 #define BUTTON_DOWN 25 // Подключение кнопки на закрытие
 
@@ -24,8 +24,8 @@ DHT dht3(DHT3PIN, DHTTYPE); // определяем третий датчик т
 
 // Для кнопок
 #include "GyverButton.h"
-GButton koncevikUp(KONCEVIK_1);
-GButton koncevikDown(KONCEVIK_2);
+GButton koncevikUp(KONCEVIK_UP);
+GButton koncevikDown(KONCEVIK_DOWN);
 GButton buttonUp(BUTTON_UP);
 GButton buttonDown(BUTTON_DOWN);
 
