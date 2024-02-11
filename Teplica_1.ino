@@ -116,7 +116,7 @@ void loop()
   {
   case 0:
     // инициализация, ничего не делаем
-    windowMs = 0;
+    windowMs = ms;
     window = 5;
     break;
     // опрос кнопок или температуры
@@ -130,6 +130,7 @@ void loop()
   // начало движения окна  ВВЕРХ, это состояние пригодится в будущем, поэтому оно отдельное
   case 10:
     digitalWrite(RELE_UP, ON);
+    digitalWrite(RELE_DOWN, OFF);
     window = 12;
     break;
     // отлавливаем нажатия на концевик
@@ -137,12 +138,19 @@ void loop()
     if (koncevikUp.isPress())
     {
       digitalWrite(RELE_UP, OFF);
-      delay(350); // нужно для установки концевика в режим hold
+      digitalWrite(RELE_DOWN, OFF);
+      windowMs = ms;
       window = 14;
     }
     break;
+    case 14:
+    // подождем немного чтобы концевик смог обрести состояние isHold()
+    if((ms - windowMs)> 350){
+      windowMs = ms;
+      window = 16;
+    }
   //  нажатие на концевик уже было, но если нет удержания, продолжаем ехать дальше
-  case 14:
+  case 16:
     if (koncevikUp.isHold())
     {
       // концевик удерживается, возводим флаг, что мы в открытом состоянии
