@@ -143,12 +143,13 @@ void loop()
       window = 14;
     }
     break;
-    case 14:
+  case 14:
     // подождем немного чтобы концевик смог обрести состояние isHold()
-    if((ms - windowMs)> 350){
+    if((ms - windowMs)> 750){
       windowMs = ms;
       window = 16;
     }
+    break;
   //  нажатие на концевик уже было, но если нет удержания, продолжаем ехать дальше
   case 16:
     if (koncevikUp.isHold())
